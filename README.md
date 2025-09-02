@@ -27,7 +27,3 @@ A custom Software Bill of Materials (SBoM) scanner for generating hierarchical S
 - Generate a dataset for 500 open-source projects.
 - Cluster projects based on update metrics.
 
-## Team
-- Nick
-- [Partner 1]
-- [Partner 2, if applicable]
