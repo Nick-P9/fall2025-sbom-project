@@ -19,11 +19,17 @@ def detectEcosystem() -> str:
         'cpp' : ['CMakeLists.txt', 'vcpkg.json']    
     }
 
-    count = 0
+
     for eco in ecosystem_files:
         key = ecosystem_files[eco]
         for file in key:
-            print(file)
+            try:
+                with open(project_dir + file) as f:
+                    print(eco)
+                    
+            except FileNotFoundError:
+                print('scanning')
+           
        
             
 
