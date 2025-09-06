@@ -6,7 +6,7 @@ def detectEcosystem() -> str:
 
     ecosystem_files = {
 
-        'python' : ['pytroject.toml', 'requirements.txt', 'Pipfile', 'setup.py'], 
+        'python' : ['pyproject.toml', 'requrements.txt', 'Pipfile', 'setup.py'], 
         'nodejs': ['package.json'],
         'maven' : ['pom.xml'],
         'gradle' : ['build.gradle', 'build.gradle.kts'],
@@ -20,18 +20,22 @@ def detectEcosystem() -> str:
     }
 
 
+    
+
     for eco in ecosystem_files:
         key = ecosystem_files[eco]
+
         for file in key:
-            try:
-                with open(project_dir + file) as f:
-                    print(eco)
-                    
-            except FileNotFoundError:
-                print('scanning')
-           
-       
+            full_path = project_dir + file
             
+            if os.path.isfile(full_path):
+                print(eco)
+                return eco
+                
+    
+    print('No supported file was found')   
+    return FileNotFoundError
+
 
 
 if __name__ == "__main__":
