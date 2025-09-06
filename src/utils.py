@@ -1,8 +1,8 @@
 
 import os
 
-def detectEcosystem() -> str:
-    project_dir = '/Users/nick/fall2025-sbom-project/tests/'
+def detectEcosystem(project_directory) -> str:
+    #project_dir = '/Users/nick/fall2025-sbom-project/tests/'
 
     ecosystem_files = {
 
@@ -26,15 +26,13 @@ def detectEcosystem() -> str:
         key = ecosystem_files[eco]
 
         for file in key:
-            full_path = project_dir + file
+            full_path = project_directory + file
             
             if os.path.isfile(full_path):
                 print(eco)
                 return eco
                 
-    
-    print('No supported file was found')   
-    return FileNotFoundError
+    raise ValueError
 
 
 
