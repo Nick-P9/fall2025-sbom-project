@@ -22,7 +22,7 @@ A custom Software Bill of Materials (SBoM) scanner for generating hierarchical S
 6. Run: `python src/main.py <project_dir> --ecosystem python --max-depth 0`
 
 ## Goals
-- Build a scanner for hierarchical SBoMs in CycloneDX format.
+- Build a scanner for hierarchical SBoMs in SPDX format.
 - Detect latest versions via APIs.
 - Generate a dataset for 500 open-source projects.
 - Cluster projects based on update metrics.
