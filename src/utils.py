@@ -6,7 +6,7 @@ def detectEcosystem(project_directory) -> str:
 
     ecosystem_files = {
 
-        'python' : ['pyproject.toml', 'requrements.txt', 'Pipfile', 'setup.py'], 
+        'python' : ['pyproject.toml', 'requirements.txt', 'Pipfile', 'setup.py'], 
         'nodejs': ['package.json'],
         'maven' : ['pom.xml'],
         'gradle' : ['build.gradle', 'build.gradle.kts'],
@@ -29,7 +29,7 @@ def detectEcosystem(project_directory) -> str:
             full_path = project_directory + file
             
             if os.path.isfile(full_path):
-                print(eco)
+                print('Ecosystem found:', eco)
                 return eco
                 
     raise ValueError
