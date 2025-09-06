@@ -1,10 +1,7 @@
 
 import os
 
-def detectEcosystem(project_directory) -> str:
-    #project_dir = '/Users/nick/fall2025-sbom-project/tests/'
-
-    ecosystem_files = {
+ecosystem_files = {
 
         'python' : ['pyproject.toml', 'requirements.txt', 'Pipfile', 'setup.py'], 
         'nodejs': ['package.json'],
@@ -20,7 +17,26 @@ def detectEcosystem(project_directory) -> str:
     }
 
 
-    
+def detectFile(project_directory: str) -> str:
+     
+     for eco in ecosystem_files:
+        key = ecosystem_files[eco]
+
+        for file in key:
+            full_path = project_directory + file
+            
+            if os.path.isfile(full_path):
+                print('File found:', file)
+                return file
+                
+        raise ValueError
+
+
+
+def detectEcosystem (project_directory: str) -> str:
+    #project_dir = '/Users/nick/fall2025-sbom-project/tests/'
+
+ 
 
     for eco in ecosystem_files:
         key = ecosystem_files[eco]
@@ -33,6 +49,8 @@ def detectEcosystem(project_directory) -> str:
                 return eco
                 
     raise ValueError
+
+
 
 
 
