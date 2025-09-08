@@ -1,5 +1,6 @@
 import argparse
 from utils import detectEcosystem, detectFile
+from scanner import scan_dependencies
 
 def main():
     parser = argparse.ArgumentParser(description="Custom SBoM Scanner")
@@ -24,11 +25,13 @@ def main():
 
        ecosystem = detectEcosystem(project_directory)
 
+       scan_dependencies(ecosystem, file, max_depth)
+
     except ValueError:
         print("No supported file found")
 
 
-
+    
 
 
 
